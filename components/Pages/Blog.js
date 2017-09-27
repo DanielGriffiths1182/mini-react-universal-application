@@ -45,20 +45,21 @@ export default class Blog extends Component {
 
     if(!this.props.params.slug){
 
-      main_content = <BlogList getMoreArticles={ this.getMoreArticles } data={ data }/>
+      main_content = &lt;BlogList getMoreArticles={ this.getMoreArticles }
+    data={ data }/&gt;
 
     } else {
 
       const articles = data.articles
-      
+
       // Get current page slug
       const slug = this.props.params.slug
       const articles_object = _.keyBy(articles, 'slug')
       const article = articles_object[slug]
-      main_content = <BlogSingle article={ article } />
+      main_content = &lt;BlogSingle article={ article } /&gt;
 
     }
-    
+
     return (
       <div>
         <Header data={ data }/>

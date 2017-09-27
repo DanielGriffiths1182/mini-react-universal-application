@@ -12,7 +12,7 @@ export default _.extend({}, EventEmitter.prototype, {
     item_num: 5
   },
 
-  // Emit Change event
+  // Emit change event
   emitChange: function(){
     this.emit('change')
   },
@@ -26,5 +26,5 @@ export default _.extend({}, EventEmitter.prototype, {
   removeChangeListener: function(callback) {
     this.removeListener('change', callback)
   }
-  
+
 })

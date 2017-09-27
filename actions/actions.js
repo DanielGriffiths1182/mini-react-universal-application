@@ -7,13 +7,13 @@ import _ from 'lodash'
 import AppStore from '../stores/AppStore'
 
 export function getStore(callback){
-  
+
   let pages = {}
 
   Cosmic.getObjects(config, function(err, response){
-    
+
     let objects = response.objects
-    
+
     /* Globals
     ======================== */
     let globals = AppStore.data.globals
@@ -41,7 +41,7 @@ export function getStore(callback){
     // Nav
     const nav_items = response.object['nav'].metafields
     globals.nav_items = nav_items
-    
+
     AppStore.data.globals = globals
 
     /* Pages
@@ -60,7 +60,7 @@ export function getStore(callback){
     let work_items = objects.type['work']
     work_items = _.sortBy(work_items, 'order')
     AppStore.data.work_items = work_items
-    
+
     // Emit change
     AppStore.data.ready = true
     AppStore.emitChange()
@@ -74,10 +74,10 @@ export function getStore(callback){
 }
 
 export function getPageData(page_slug, post_slug){
-  
+
   if(!page_slug || page_slug === 'blog')
     page_slug = 'home'
-  
+
   // Get page info
   const data = AppStore.data
   const pages = data.pages
@@ -111,7 +111,7 @@ export function getPageData(page_slug, post_slug){
 }
 
 export function getMoreItems(){
-  
+
   AppStore.data.loading = true
   AppStore.emitChange()
 
